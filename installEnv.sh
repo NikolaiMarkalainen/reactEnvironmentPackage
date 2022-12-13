@@ -68,5 +68,20 @@ cd backend
 
 npm init --yes
 
+npm install express
+npm install --save-dev nodemon
+npm install cors
+npm install dotenv
+touch .env
+echo -e ".env"  | tee -a > .gitignore
+npm install eslint --save-dev
+npx eslint --init
+touch .eslintignore
+echo -e "build" > .eslintignore
+npm install --save-dev supertest
+npm install express-async-errors
+echo ""
+echo ""
+echo "Installed express, nodemon, cors, dotenv, eslint, supertest, express-async-errors"
 
 
