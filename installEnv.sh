@@ -128,31 +128,3 @@ touch blank.js
 echo -e "//create server request methods with your data and export as a variable to app.js" > blank.js
 
 cd ..
-
-touch index.js
-
-echo -e "const app = require('./app')\n const http require('http')\nconst config = require('/utils/config)\n const logger = require('./utils/logger')\n const server = http.createServer(app)\n server.listen(config.PORT, () => {\n logger.info('Server running on port ', config.PORT)\n})"  > index.js
-
-touch app.js
-
-echo -e "const config = require('./utils/config')
-const express = require('express')
-require('express-async-errors')
-const app = express()
-const cors = require('cors')
-const blankRouter = require('./controllers/blanks')
-const middleware = require('./utils/middleware')
-const logger = require('./utils/logger')
-
-
-
-app.use(cors())
-app.use(express.static('build'))
-app.use(express.json())
-app.use(middleware.requestLogger)
-app.use('/api/blanks', blankRouter)
-app.use(middleware.unknownEndpoint)
-app.use(middleware.errorHandler)
-
-module.exports =app" > app.js
-
